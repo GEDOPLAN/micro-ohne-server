@@ -14,6 +14,10 @@
 
   <packaging>war</packaging>
 
+  <properties>
+    <version.wildfly.swarm>2016.11.0</version.wildfly.swarm>
+  </properties>
+
   <repositories>
     <repository>
       <id>gedoplanPublic</id>
@@ -67,4 +71,53 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>wildfly_swarm</id>
+
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>bom-all</artifactId>
+            <version>${version.wildfly.swarm}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+
+      <dependencies>
+
+        <dependency>
+          <groupId>org.wildfly.swarm</groupId>
+          <artifactId>jaxrs-cdi</artifactId>
+        </dependency>
+
+      </dependencies>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>wildfly-swarm-plugin</artifactId>
+            <version>${version.wildfly.swarm}</version>
+            <configuration>
+              <properties>
+                <swarm.context.path>${project.artifactId}</swarm.context.path>
+              </properties>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>package</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

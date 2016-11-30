@@ -25,6 +25,7 @@ public class InitTextblockDataService implements Serializable {
   void createDemoData(@Observes @Initialized(ApplicationScoped.class) Object event) {
     try {
       if (this.textblockRepository.countAll() == 0) {
+        this.log.debug("Creating test data");
         this.textblockRepository.persist(new Textblock("Hi Dude"));
         this.textblockRepository.persist(new Textblock("Java EE rocks!"));
       }

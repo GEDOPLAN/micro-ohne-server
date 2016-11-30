@@ -16,6 +16,7 @@
 
   <properties>
     <version.wildfly.swarm>2016.11.0</version.wildfly.swarm>
+    <kumuluzee.version>2.0.0</kumuluzee.version>
   </properties>
 
   <repositories>
@@ -71,7 +72,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
+
   <build>
     <defaultGoal>package</defaultGoal>
     <finalName>${project.artifactId}</finalName>
@@ -79,7 +80,7 @@
 
   <profiles>
     <profile>
-      <id>wildfly_swarm</id>
+      <id>wildflySwarm</id>
 
       <dependencyManagement>
         <dependencies>
@@ -98,6 +99,7 @@
         <dependency>
           <groupId>org.wildfly.swarm</groupId>
           <artifactId>jaxrs-cdi</artifactId>
+          <scope>provided</scope>
         </dependency>
 
       </dependencies>
@@ -117,6 +119,62 @@
               <execution>
                 <goals>
                   <goal>package</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>payaraMicro</id>
+    </profile>
+    
+    <profile>
+      <id>kumuluzEE</id>
+
+      <dependencies>
+        <dependency>
+          <groupId>com.kumuluz.ee</groupId>
+          <artifactId>kumuluzee-core</artifactId>
+          <version>${kumuluzee.version}</version>
+          <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.kumuluz.ee</groupId>
+          <artifactId>kumuluzee-servlet-jetty</artifactId>
+          <version>${kumuluzee.version}</version>
+          <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.kumuluz.ee</groupId>
+          <artifactId>kumuluzee-jax-rs-jersey</artifactId>
+          <version>${kumuluzee.version}</version>
+          <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>com.kumuluz.ee</groupId>
+          <artifactId>kumuluzee-cdi-weld</artifactId>
+          <version>${kumuluzee.version}</version>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>copy-dependencies</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
                 </goals>
               </execution>
             </executions>

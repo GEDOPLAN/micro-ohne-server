@@ -71,6 +71,11 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+    <defaultGoal>package</defaultGoal>
+    <finalName>${project.artifactId}</finalName>
+  </build>
 
   <profiles>
     <profile>

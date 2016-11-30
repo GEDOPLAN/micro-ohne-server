@@ -1,0 +1,1 @@
+java -jar \downloads\pqrs\payara\payara-micro-4.1.1.164.jar --noCluster --deploy target\micro-ohne-server.war

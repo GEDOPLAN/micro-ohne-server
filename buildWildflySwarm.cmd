@@ -1,0 +1,1 @@
+mvn -PwildflySwarm clean package

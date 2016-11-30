@@ -1,0 +1,1 @@
+mvn -PkumuluzEE clean package

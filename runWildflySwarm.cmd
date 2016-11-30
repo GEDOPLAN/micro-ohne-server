@@ -1,0 +1,1 @@
+java -jar target\micro-ohne-server-swarm.jar

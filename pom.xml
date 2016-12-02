@@ -102,6 +102,12 @@
           <scope>provided</scope>
         </dependency>
 
+        <dependency>
+          <groupId>org.wildfly.swarm</groupId>
+          <artifactId>jpa</artifactId>
+          <scope>provided</scope>
+        </dependency>
+
       </dependencies>
 
       <build>
@@ -111,9 +117,7 @@
             <artifactId>wildfly-swarm-plugin</artifactId>
             <version>${version.wildfly.swarm}</version>
             <configuration>
-              <properties>
-                <swarm.context.path>${project.artifactId}</swarm.context.path>
-              </properties>
+              <mainClass>de.gedoplan.micro.bootstrap.SwarmBootstrap</mainClass>
             </configuration>
             <executions>
               <execution>
@@ -130,7 +134,7 @@
     <profile>
       <id>payaraMicro</id>
     </profile>
-    
+
     <profile>
       <id>kumuluzEE</id>
 

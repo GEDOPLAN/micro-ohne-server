@@ -115,7 +115,6 @@
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>build-helper-maven-plugin</artifactId>
-            <version>1.12</version>
             <executions>
               <execution>
                 <id>add-source</id>
@@ -125,8 +124,22 @@
                 </goals>
                 <configuration>
                   <sources>
-                    <source>src/main/wildflySwarm</source>
+                    <source>src/wildflySwarm/java</source>
                   </sources>
+                </configuration>
+              </execution>
+              <execution>
+                <id>add-resource</id>
+                <phase>generate-resources</phase>
+                <goals>
+                  <goal>add-resource</goal>
+                </goals>
+                <configuration>
+                  <resources>
+                    <resource>
+                      <directory>src/wildflySwarm/resources</directory>
+                    </resource>
+                  </resources>
                 </configuration>
               </execution>
             </executions>

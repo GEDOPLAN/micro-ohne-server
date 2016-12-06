@@ -1,1 +1,0 @@
-This directory is included for KumuluzEE only. It depends on a webapp directory in the classpath! 

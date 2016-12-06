@@ -16,7 +16,10 @@
 
   <properties>
     <version.wildfly.swarm>2016.11.0</version.wildfly.swarm>
-    <kumuluzee.version>2.0.0</kumuluzee.version>
+    <version.payara.micro>4.1.1.164</version.payara.micro>
+    <version.kumuluzee>2.0.0</version.kumuluzee>
+
+    <platform></platform>
   </properties>
 
   <repositories>
@@ -81,6 +84,10 @@
   <profiles>
     <profile>
       <id>wildflySwarm</id>
+
+      <properties>
+        <platform>WildFly Swarm ${version.wildfly.swarm}</platform>
+      </properties>
 
       <dependencyManagement>
         <dependencies>
@@ -167,11 +174,15 @@
     <profile>
       <id>payaraMicro</id>
 
+      <properties>
+        <platform>Payara Micro ${version.payara.micro}</platform>
+      </properties>
+
       <dependencies>
         <dependency>
           <groupId>fish.payara.extras</groupId>
           <artifactId>payara-micro</artifactId>
-          <version>4.1.1.164</version>
+          <version>${version.payara.micro}</version>
           <scope>provided</scope>
         </dependency>
 
@@ -248,39 +259,43 @@
     <profile>
       <id>kumuluzEE</id>
 
+      <properties>
+        <platform>KumuluzEE ${version.kumuluzee}</platform>
+      </properties>
+
       <dependencies>
         <dependency>
           <groupId>com.kumuluz.ee</groupId>
           <artifactId>kumuluzee-core</artifactId>
-          <version>${kumuluzee.version}</version>
+          <version>${version.kumuluzee}</version>
           <scope>provided</scope>
         </dependency>
 
         <dependency>
           <groupId>com.kumuluz.ee</groupId>
           <artifactId>kumuluzee-servlet-jetty</artifactId>
-          <version>${kumuluzee.version}</version>
+          <version>${version.kumuluzee}</version>
           <scope>provided</scope>
         </dependency>
 
         <dependency>
           <groupId>com.kumuluz.ee</groupId>
           <artifactId>kumuluzee-jax-rs-jersey</artifactId>
-          <version>${kumuluzee.version}</version>
+          <version>${version.kumuluzee}</version>
           <scope>provided</scope>
         </dependency>
 
         <dependency>
           <groupId>com.kumuluz.ee</groupId>
           <artifactId>kumuluzee-cdi-weld</artifactId>
-          <version>${kumuluzee.version}</version>
+          <version>${version.kumuluzee}</version>
           <scope>provided</scope>
         </dependency>
 
         <dependency>
           <groupId>com.kumuluz.ee</groupId>
           <artifactId>kumuluzee-jpa-eclipselink</artifactId>
-          <version>${kumuluzee.version}</version>
+          <version>${version.kumuluzee}</version>
           <scope>provided</scope>
         </dependency>
 

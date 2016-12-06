@@ -9,6 +9,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.transaction.Transactional;
 
+/**
+ * Interceptor class for binding {@link Transactional @Transactional}.
+ *
+ * This interceptor controls transactions as entity manager local transactions. This works in combination with {@link ThreadLocalEntityManagerProducer} only
+ * because all injection poins must receive the same entity manager within the same thread.
+ * 
+ * @author dw
+ *
+ */
 @Interceptor
 @Transactional
 @Priority(Interceptor.Priority.APPLICATION + 1)

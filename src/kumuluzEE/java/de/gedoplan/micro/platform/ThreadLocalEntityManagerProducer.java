@@ -10,6 +10,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
+/**
+ * Producer class for thread bound entity managers.
+ *
+ * Used for KumuluzEE applications instead of the default @PersistencContext injected entity managers because of the lack of global transactions (see also {@link TransactionalInterceptor}).
+ *
+ * @author dw
+ */
 @Alternative
 @Priority(1)
 @ApplicationScoped

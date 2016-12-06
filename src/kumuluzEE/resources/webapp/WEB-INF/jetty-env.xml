@@ -1,0 +1,13 @@
+<Configure id="Server" class="org.eclipse.jetty.webapp.WebAppContext">
+  <New id="showcaseDS" class="org.eclipse.jetty.plus.jndi.Resource">
+    <Arg></Arg>
+    <Arg>jdbc/showcase</Arg>
+    <Arg>
+      <New class="org.h2.jdbcx.JdbcDataSource">
+        <Set name="URL">jdbc:h2:~/h2/showcase;AUTO_SERVER=TRUE</Set>
+        <Set name="User">showcase</Set>
+        <Set name="Password">showcase</Set>
+      </New>
+    </Arg>
+  </New>
+</Configure>

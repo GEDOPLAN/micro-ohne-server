@@ -31,6 +31,7 @@ public class ThreadLocalEntityManagerProducer {
   }
 
   void closeEntityManager(@Disposes EntityManager entityManager) {
+    this.entityManagerHolder.set(null);
     entityManager.close();
   }
 }

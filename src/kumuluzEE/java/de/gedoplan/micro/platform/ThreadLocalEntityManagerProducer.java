@@ -17,7 +17,7 @@ public class ThreadLocalEntityManagerProducer {
   @PersistenceUnit(unitName = "showcase-ee")
   EntityManagerFactory entityManagerFactory;
 
-  private ThreadLocal<EntityManager> entityManagerHolder = new ThreadLocal<>();
+  ThreadLocal<EntityManager> entityManagerHolder = new ThreadLocal<>();
 
   @Produces
   @Dependent

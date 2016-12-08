@@ -1,0 +1,1 @@
+mvn -PwildflySwarm -Dswarm.hollow=true clean package

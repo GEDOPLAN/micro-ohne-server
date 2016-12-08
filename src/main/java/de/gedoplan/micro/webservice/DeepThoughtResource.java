@@ -12,7 +12,7 @@ public class DeepThoughtResource {
   DeepThoughtService svc;
 
   @GET
-  public int get() {
-    return this.svc.getAnswer();
+  public String get() {
+    return "The answer is " + this.svc.getAnswer();
   }
 }

@@ -37,12 +37,30 @@ public class Index extends HttpServlet {
     out.println("<html>");
     out.println("<body>");
     out.println("<h2>micro-ohne-server</h2>");
+
+    out.println("Services offered by this application:");
     out.println("<table>");
     out.println("  <tr>");
-    out.println("    <td>Powered by</td>");
-    out.println("    <td>" + platform + "</td>");
+    out.println("    <th>URL</th>");
+    out.println("    <th>Methods supported</th>");
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <td><a href=\"rest/hello\">Simple sample (Hello world)</a></td>");
+    out.println("    <td>GET</td>");
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <td><a href=\"rest/text\">CRUD service for text blocks</a></td>");
+    out.println("    <td>GET, PUT, POST, DELETE (text block id specified as additional url segment)</td>");
+    out.println("  </tr>");
+    out.println("  <tr>");
+    out.println("    <td><a href=\"rest/answer\">Get the answer to the meaning of life, the universe, and everything</a></td>");
+    out.println("    <td>GET</td>");
     out.println("  </tr>");
     out.println("</table>");
+
+    out.println("<hr>");
+
+    out.println("Powered by " + platform);
     out.println("</body>");
     out.println("</html>");
 

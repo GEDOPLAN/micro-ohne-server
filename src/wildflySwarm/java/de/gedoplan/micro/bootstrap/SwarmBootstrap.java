@@ -7,9 +7,9 @@ import org.wildfly.swarm.Swarm;
 public class SwarmBootstrap {
 
   public static void main(String[] args) throws Exception {
-    Swarm swarm = new Swarm();
-
     System.setProperty("swarm.context.path", "micro-ohne-server");
+
+    Swarm swarm = new Swarm();
 
     URL standaloneFullXml = SwarmBootstrap.class.getClassLoader().getResource("configuration/standalone-full.xml");
 
